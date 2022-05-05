@@ -46,3 +46,5 @@ async function getForm(bio_ids) {
 
     return data;
 }
+
+export { getReps, getForm };
