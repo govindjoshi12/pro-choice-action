@@ -21,7 +21,6 @@ async function getReps(chamber, state) {
         data = response.data;
     });
 
-
     return data;
 }
 
