@@ -1,27 +1,27 @@
 const BASE_URL = "https://api.propublica.org/congress/v1/members/"
 const POTC_URL = "https://congressforms.eff.org/"
-api_key = "VtnX28ugVhFGy6R3Bg00bR9zAHwsKUeuIy1DyPAb"
+const api_key = "VtnX28ugVhFGy6R3Bg00bR9zAHwsKUeuIy1DyPAb"
 
 // Returns name, social media, bio ID
 // https://projects.propublica.org/api-docs/congress-api/members/#get-current-members-by-statedistrict
 // Test chamber: "senate", state: "tx"
 async function getReps(chamber, state) {
-    url = `${BASE_URL}/${chamber}/${state}/current.json`;
-    data = null;
-    await fetch(url, { 
-            method: "GET",
-            headers: {
-                'X-API-KEY': api_key,
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
-            }
-        }).then(response => {
-            return response.json();
-        }).then(response => {
-            data = response.data;
-        });
+    let url = `${BASE_URL}/${chamber}/${state}/current.json`;
+    let data = null;
+    await fetch(url, {
+        method: "GET",
+        headers: {
+            'X-API-KEY': api_key,
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+        }
+    }).then(response => {
+        return response.json();
+    }).then(response => {
+        data = response.data;
+    });
 
-    
+
     return data;
 }
 
@@ -29,8 +29,8 @@ async function getReps(chamber, state) {
 // Returns JSON object with necessary fields
 // Test ID: C000880
 async function getForm(bio_ids) {
-    url = `${POTC_URL}/retrieve-form-elements`
-    data = null;
+    let url = `${POTC_URL}/retrieve-form-elements`
+    let data = null;
 
     await fetch(url, {
         method: "POST",
