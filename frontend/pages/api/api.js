@@ -4,6 +4,7 @@ api_key = "VtnX28ugVhFGy6R3Bg00bR9zAHwsKUeuIy1DyPAb"
 
 // Returns name, social media, bio ID
 // https://projects.propublica.org/api-docs/congress-api/members/#get-current-members-by-statedistrict
+// Test chamber: "senate", state: "tx"
 async function getReps(chamber, state) {
     url = `${BASE_URL}/${chamber}/${state}/current.json`;
     data = null;
@@ -26,6 +27,7 @@ async function getReps(chamber, state) {
 
 // Takes array of bio_id strings
 // Returns JSON object with necessary fields
+// Test ID: C000880
 async function getForm(bio_ids) {
     url = `${POTC_URL}/retrieve-form-elements`
     data = null;
