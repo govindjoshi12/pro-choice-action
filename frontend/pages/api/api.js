@@ -1,6 +1,6 @@
-const BASE_URL = "https://api.propublica.org/congress/v1/members/"
-const POTC_URL = "https://congressforms.eff.org/"
-const api_key = "VtnX28ugVhFGy6R3Bg00bR9zAHwsKUeuIy1DyPAb"
+const BASE_URL = "https://api.propublica.org/congress/v1/members/";
+const POTC_URL = "https://congressforms.eff.org/";
+const api_key = "VtnX28ugVhFGy6R3Bg00bR9zAHwsKUeuIy1DyPAb";
 
 // Returns name, social media, bio ID
 // https://projects.propublica.org/api-docs/congress-api/members/#get-current-members-by-statedistrict
@@ -17,10 +17,10 @@ async function getReps(chamber, state) {
         }
     }).then(response => {
         return response.json();
-    }).then(response => {
-        data = response.data;
+    }).then((response) => {
+        // Data contained in results
+        data = response.results;
     });
-
 
     return data;
 }
@@ -34,8 +34,10 @@ async function getForm(bio_ids) {
 
     await fetch(url, {
         method: "POST",
+        mode: 'cors',
         headers: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*' 
         },
         body: JSON.stringify(bio_ids)
     }).then(response => {

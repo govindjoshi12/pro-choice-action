@@ -4,7 +4,12 @@ import { getReps, getForm } from "../pages/api/api";
 const APITEST = () => {
     return (
         <div className="container">
-            {console.log(getReps("house", "tx"))}
+            {
+                console.log(getReps("senate", "tx"))
+            }
+            {
+                // console.log(getForm(['C000880']))
+            }
         </div >
     );
 };
