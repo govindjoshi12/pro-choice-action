@@ -34,13 +34,16 @@ const NavBar = () => {
                     </div>
 
                     <div className="hidden md:flex flex-col md:flex-row md:ml-auto mt-3 md:mt-0" id="navbar-collapse">
-                        <a href="#" className={tabclassName}>
+                        <a href="/" className={tabclassName}>
                             Home
                         </a>
-                        <a href="#" className={tabclassName}>
+                        <a href="form" className={tabclassName}>
+                            Form
+                        </a>
+                        <a href="info" className={tabclassName}>
                             Additional Information
                         </a>
-                        <a href="#" className={tabclassName}>
+                        <a href="about" className={tabclassName}>
                             About Us
                         </a>
                     </div>
